@@ -65,7 +65,7 @@ public class Game : MonoBehaviour {
         //linhas 1 a=0 check = 1
         //linhas 2 a=1 check = 2
         //diagonais check = 3, check = 4
-        /*for (int check = 0; check <= 4; check++)
+        for (int check = 0; check <= 4; check++)
         {
             if (check == 0)
             {
@@ -94,30 +94,6 @@ public class Game : MonoBehaviour {
                     if (points == 3 || points == 300 || points == 30000 && endGame == 0) return true;
                     else points = 0;
                 }
-            }
-        }*/
-        for (int check = 0; check <= 4; check++)
-        {
-            int x = 0, y = 0, a = 0, yme = 0, xme = 0;
-            if (check == 0)
-            {
-                yme = 3; xme = 2;
-            }
-            else if (check == 1 || check == 2)
-            {
-                if (check == 2) a = 1;
-                yme = 2; x = 0 + a; xme = 2 + a;
-            }
-            for (int i = y; i <= yme; i++)
-            {
-                for (int o = x; o <= xme; o++)
-                {
-                    if (check == 0) points += grid[o, i];
-                    else points += grid[i, o];
-                    if (points > 0) Debug.Log("points:" + points);
-                }
-                if (points == 3 || points == 300 || points == 30000 && endGame == 0) return true;
-                else points = 0;
             }
         }
         return false;
