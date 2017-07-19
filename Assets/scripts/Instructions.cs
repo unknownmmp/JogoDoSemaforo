@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Instructions : MonoBehaviour {
 
@@ -34,6 +35,10 @@ public class Instructions : MonoBehaviour {
         {
             CheckState();
             CheckTime();
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Nicknames");
         }
     }
     
