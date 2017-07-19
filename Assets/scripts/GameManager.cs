@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(scene);
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationPause()
     {
         PlayerPrefs.DeleteAll();
     }
