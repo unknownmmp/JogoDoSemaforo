@@ -8,11 +8,11 @@ public class ButtonManager : MonoBehaviour {
 
     public Game game;
 
+    public Button button;
     public Sprite verde;
     public Sprite amarelo;
     public Sprite vermelho;
-    public Color color;
-    Color transparent = new Vector4(1, 1, 1, 0);
+    Color color = new Vector4(1, 1, 1, 1);
     public Image image;
     public int X;
     public int Y;
@@ -26,11 +26,9 @@ public class ButtonManager : MonoBehaviour {
 
     private void Update()
     {
-        if (game.grid[X, Y] == 0)
+        if (game.endGame == 1)
         {
-            image.overrideSprite = null;
-            image.color = transparent;
-            state = 0;
+            button.interactable = false;
         }
     }
 

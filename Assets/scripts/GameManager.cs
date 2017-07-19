@@ -10,4 +10,9 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Loading scene: " + scene);
         SceneManager.LoadScene(scene);
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
