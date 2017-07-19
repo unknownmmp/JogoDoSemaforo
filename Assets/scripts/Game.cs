@@ -8,6 +8,10 @@ public class Game : MonoBehaviour {
     public int[,] grid = new int[3, 4];
     public Image turn1;
     public Image turn2;
+    public Image layerImg;
+    public Text endText;
+    public Button resButton;
+    public GameObject layer;
     public Text player1Text;
     public Text player2Text;
     public Text player1Name;
@@ -101,7 +105,7 @@ public class Game : MonoBehaviour {
                     {
                         points += grid[x, yy];
                         yy++;
-                        if (points > 0) Debug.Log("points:" + points);
+                        //if (points > 0) Debug.Log("points:" + points);
                     }
                     if (points == 3 || points == 300 || points == 30000 && endGame == 0) return true;
                     else points = 0;
@@ -116,7 +120,7 @@ public class Game : MonoBehaviour {
                     {
                         points += grid[x, yy];
                         yy--;
-                        if (points > 0) Debug.Log("points:" + points);
+                        //if (points > 0) Debug.Log("points:" + points);
                     }
                     if (points == 3 || points == 300 || points == 30000 && endGame == 0) return true;
                     else points = 0;
@@ -158,15 +162,18 @@ public class Game : MonoBehaviour {
         if (CheckPoints() == true)
         {
             points = 0;
+            layer.SetActive(true);
             if (turn == 0)
             {
                 player1Stats[0]++;
                 player2Stats[1]++;
+                endText.text = player1Name.text + " ganhou!\r\nClica para recomeçar";
             }
             else if (turn == 1)
             {
                 player2Stats[0]++;
                 player1Stats[1]++;
+                endText.text = player2Name.text + " ganhou!\r\nClica para recomeçar";
             }
             ManageScores("save");
             UpdateStats();
